@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 	private Boolean isDeleted;
 	private ArrayList<Integer> userIds = new ArrayList<Integer>();
 	private ArrayList<Integer> processIds = new ArrayList<Integer>();
-	private ArrayList<Persona> personas = new ArrayList<Persona>();
-	private ArrayList<Product> products = new ArrayList<Product>();
+	 
   
 	public Integer getId() {
 		return id;
@@ -101,22 +100,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 	}
 
 	
-	public ArrayList<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(ArrayList<Product> products) {
-		this.products = products;
-	}
-
-	public ArrayList<Persona> getPersonas() {
-		return personas;
-	}
-
-	public void setPersonas(ArrayList<Persona> personas) {
-		this.personas = personas;
-	}
-
+	 
 	public ArrayList<Integer> getProcessIds() {
 		return processIds;
 	}

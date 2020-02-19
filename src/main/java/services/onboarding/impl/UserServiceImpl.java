@@ -13,7 +13,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -21,19 +20,17 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
+
 import constants.OnboardingResponseCodes;
 import constants.OnboardingResponseMessages;
 import constants.Role;
 import db.interfaces.FileUploadDAO;
-import db.interfaces.TeamDAO;
 import db.interfaces.UserDAO;
 import db.postgres.FileUploadDAOPG;
-import db.postgres.TeamDAOPG;
 import db.postgres.UserDAOPG;
 import pojos.BulkUser;
 import pojos.SaleskenResponse;
 import pojos.User;
-import pojos.Users;
 import pojos.ValidateResponse;
 import services.global.impl.JWTTokenNeeded;
 import services.onboarding.UserService;

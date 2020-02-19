@@ -1,4 +1,4 @@
-package swagger;
+package services.swagger;
 
 import java.io.IOException;
 
@@ -9,12 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import io.swagger.annotations.ExternalDocs;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.jaxrs.config.BeanConfig;
 
 /**
  * Servlet implementation class SwaggerConfigurationServlet
  */
 @WebServlet("/SwaggerConfigurationServlet")
+@SwaggerDefinition(host = "localhost:8080", 
+basePath = "/salesken-onboarding/api",
+info = @Info(description = "This application contains all the Salesken Onboarding Wizard Application API's",
+title = "Salesken Onboarding API", version = "1.6.0"), 
+consumes = {"application/json" }, produces = {	"application/json" },
+externalDocs = @ExternalDocs(value = "Read This For Documentation", url = "https://salesken.atlassian.net/wiki/spaces/TD/pages/128647175/Technical+Spec+-+Onboarding"))
 public class SwaggerConfigurationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

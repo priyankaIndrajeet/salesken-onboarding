@@ -102,10 +102,8 @@ public interface UserDAO {
 
 	public ArrayList<DesignationUser> getAllAssociateWithManagerByuserId(Integer userId) throws SQLException;
 
-	public Boolean assignOwner(User user) throws SQLException;
-
-	public Boolean SendVerificationMail(User user, String token, String type) throws SQLException;
-
+ 
+ 
 	public BulkUser userVerification(BulkUser user) throws SQLException;
 
 	public Designation addDesignation(Designation designation, Integer userId) throws SQLException;
