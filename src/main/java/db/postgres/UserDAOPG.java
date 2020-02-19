@@ -456,9 +456,9 @@ public class UserDAOPG implements UserDAO {
 					.executeQuery(Thread.currentThread().getStackTrace(), sqlEmailMobileCheck);
 			if (resultCheck.size() == 0) {
 				String encryptedPassword = StringUtils.getMd5("test123");
-
-				String userSql = "INSERT INTO istar_user (email, password, created_at, mobile,auth_token,login_type, is_verified, is_supend, is_supended, is_deleted, show_real_time_notification) VALUES"
-						+ " (?, ?, now(), ?, NULL, NULL, 't', NULL, 'f', 'f', 'f');";
+				//Here we are setting default designation as 1 which is defined as 'Unallocated' in our database
+				String userSql = "INSERT INTO istar_user (email, password, created_at, mobile,auth_token,login_type, is_verified, is_supend, is_supended, is_deleted, show_real_time_notification,designation_id) VALUES"
+						+ " (?, ?, now(), ?, NULL, NULL, 't', NULL, 'f', 'f', 'f',1);";
 
 				HashMap<Integer, Object> userData = new HashMap<Integer, Object>();
 				userData.put(1, email);

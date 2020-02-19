@@ -38,7 +38,7 @@ import pojos.User;
 import pojos.Users;
 import pojos.ValidateResponse;
 import services.global.impl.JWTTokenNeeded;
-import services.onboarding.OrganizationService;
+import services.v1.onboarding.OrganizationService;
 import validators.impl.PhoneNumberValidator;
 
 @Path("v1/organization")
@@ -372,7 +372,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 	@GET
 	@Path("/industry_list")
 	@Produces(MediaType.APPLICATION_JSON)
- 	public Response viewIndustryList() {
+	public Response viewIndustryList() {
 		SaleskenResponse response = null;
 		try {
 			List<IndustryType> teams = new IndustryTypeDAOPG().getIndustryTypes();
