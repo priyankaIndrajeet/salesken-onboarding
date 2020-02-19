@@ -28,6 +28,10 @@ import db.interfaces.FileUploadDAO;
 import db.interfaces.UserDAO;
 import db.postgres.FileUploadDAOPG;
 import db.postgres.UserDAOPG;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ExternalDocs;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
 import pojos.BulkUser;
 import pojos.SaleskenResponse;
 import pojos.User;
@@ -37,6 +41,14 @@ import services.onboarding.UserService;
 import validators.impl.PhoneNumberValidator;
 
 @Path("/user")
+@SwaggerDefinition(host = "localhost:8080", 
+basePath = "/salesken-onboarding/api",
+info = @Info(description = "This application contains all the Salesken Onboarding Wizard Application API's",
+title = "Salesken Onboarding API", version = "1.6.0"), 
+consumes = {"application/json" }, produces = {	"application/json" },
+externalDocs = @ExternalDocs(value = "Read This For Documentation", url = "https://salesken.atlassian.net/wiki/spaces/TD/pages/128647175/Technical+Spec+-+Onboarding"))
+@Api("/User Service")
+
 public class UserServiceImpl implements UserService {
 	@Context
 	private ContainerRequestContext req;
