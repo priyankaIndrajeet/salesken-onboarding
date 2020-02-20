@@ -1,4 +1,4 @@
-package ai.salesken.onboarding.utils.string;
+package ai.salesken.onboarding.utils.impl;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,7 +12,7 @@ import org.jsoup.nodes.Entities.EscapeMode;
 import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Whitelist;
 
-public class StringUtils {
+public class StringUtilImpl {
 	public static String getMd5(String input) {
 		try {
 

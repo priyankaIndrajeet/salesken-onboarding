@@ -3,10 +3,12 @@ package ai.salesken.onboarding.app;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import ai.salesken.onboarding.injector.OnboardingBinder;
+import ai.salesken.onboarding.misc.JWTTokenNeededFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 
 public class SaleskenOnboardingApplication extends ResourceConfig {
 	public SaleskenOnboardingApplication() {
+	 
 		register(new OnboardingBinder());
 		register(io.swagger.jaxrs.listing.ApiListingResource.class);
 		register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
@@ -17,6 +19,7 @@ public class SaleskenOnboardingApplication extends ResourceConfig {
 		beanConfig.setBasePath("/salesken-onboarding/api");
 		beanConfig.setResourcePackage("io.swagger.resources");
 		beanConfig.setScan(true);
-		packages("ai.salesken.onboarding.service");
+		packages("ai.salesken.onboarding");
+		 
 	}
 }

@@ -17,26 +17,28 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.jvnet.hk2.annotations.Service;
+
 import ai.salesken.onboarding.constants.ResponseCodes;
 import ai.salesken.onboarding.constants.ResponseMessages;
 import ai.salesken.onboarding.dao.UserDao;
-import ai.salesken.onboarding.dao.impl.UserDaoImpl;
 import ai.salesken.onboarding.misc.KeySingleton;
 import ai.salesken.onboarding.model.SaleskenResponse;
 import ai.salesken.onboarding.model.User;
 import ai.salesken.onboarding.service.Authentication;
-import ai.salesken.onboarding.utils.string.StringUtils;
+import ai.salesken.onboarding.utils.impl.StringUtilImpl;
 import io.jsonwebtoken.Jwts;
+import io.swagger.annotations.Api;
 
 /**
  * @author Anurag
  *
  */
 @Path("/global")
-
+@Api("/Authentication Service")
+//@Service
 public class AuthenticationImpl implements Authentication {
-	@Context
-	private ContainerRequestContext req;
+	 
 	@Inject
 	UserDao userDao;
 
@@ -53,7 +55,7 @@ public class AuthenticationImpl implements Authentication {
 				u = userDao.findbyEmail(user.getEmail().toLowerCase());
 				if (u != null) {
 					// MD5 Check for password
-					String password = StringUtils.getMd5(user.getPassword());
+					String password = StringUtilImpl.getMd5(user.getPassword());
 					if (u.getPassword().trim().equals(password) || u.getPassword().trim().equals(user.getPassword())) {
 						if (!u.getIsDeleted()) {
 							if (!u.getIsSuspended()) {
@@ -106,7 +108,7 @@ public class AuthenticationImpl implements Authentication {
 						ResponseMessages.NULL_VALUES_PASSED_IN_AUTH);
 			}
 		} catch (SQLException e) {
-			response = new SaleskenResponse(ResponseCodes.PROBLEM_WITH_DB, ResponseMessages.PROBLEM_WITH_DB);
+			response = new SaleskenResponse(ResponseCodes.DB_ERROR, ResponseMessages.DB_EXCEPTION);
 		}
 
 		return Response.status(200).entity(response).header("Authorization", "Bearer " + jws).build();

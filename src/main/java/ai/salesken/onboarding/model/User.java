@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
- * @author Vaibhav Verma
+ * @author Anurag
  *
  */
 @JsonInclude(Include.NON_NULL)
@@ -19,9 +19,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class User {
 	private Integer id;
 	private String email;
-	private String number;
+	private String mobile;
 	private String first_name;
 	private String last_name;
+	private String profile_image;
 	private User owner;
 	private String designation;
 	private String location;
@@ -38,7 +39,6 @@ public class User {
 	private String addressLine2;
 	private ArrayList<String> roles = new ArrayList<String>();
 	private ArrayList<String> licenseKeys = new ArrayList<String>();
-	
 
 	public User() {
 		super();
@@ -60,12 +60,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getFirst_name() {
@@ -202,6 +202,14 @@ public class User {
 
 	public void setLicenseKeys(ArrayList<String> licenseKeys) {
 		this.licenseKeys = licenseKeys;
+	}
+
+	public String getProfile_image() {
+		return profile_image;
+	}
+
+	public void setProfile_image(String profile_image) {
+		this.profile_image = profile_image;
 	}
 
 	public enum UserRoleTypes {
