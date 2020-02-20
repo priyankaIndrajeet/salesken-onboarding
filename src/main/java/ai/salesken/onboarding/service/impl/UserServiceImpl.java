@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
+import org.jvnet.hk2.annotations.Service;
 
 import ai.salesken.onboarding.model.SaleskenResponse;
 import ai.salesken.onboarding.service.UserService;
@@ -32,7 +33,7 @@ import io.swagger.annotations.SwaggerDefinition;
 		"application/json" }, produces = {
 				"application/json" }, externalDocs = @ExternalDocs(value = "Read This For Documentation", url = "https://salesken.atlassian.net/wiki/spaces/TD/pages/128647175/Technical+Spec+-+Onboarding"))
 @Api("/User Service")
-
+@Service
 public class UserServiceImpl implements UserService {
 	@Context
 	private ContainerRequestContext req;
