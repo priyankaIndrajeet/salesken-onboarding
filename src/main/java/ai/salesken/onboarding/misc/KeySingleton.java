@@ -1,4 +1,4 @@
-package ai.salesken.onboarding.app;
+package ai.salesken.onboarding.misc;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

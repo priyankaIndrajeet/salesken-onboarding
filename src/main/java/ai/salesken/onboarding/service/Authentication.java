@@ -4,7 +4,6 @@ import javax.ws.rs.core.Response;
 
 import ai.salesken.onboarding.model.User;
 
- 
 public interface Authentication {
 	/**
 	 * 

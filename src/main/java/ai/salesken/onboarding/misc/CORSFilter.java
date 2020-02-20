@@ -1,4 +1,4 @@
-package ai.salesken.onboarding.app;
+package ai.salesken.onboarding.misc;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;

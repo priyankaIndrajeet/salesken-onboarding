@@ -1,4 +1,4 @@
-package ai.salesken.onboarding.app;
+package ai.salesken.onboarding.misc;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;

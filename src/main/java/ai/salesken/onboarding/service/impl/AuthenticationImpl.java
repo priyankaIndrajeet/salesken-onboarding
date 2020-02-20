@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -16,25 +17,28 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import ai.salesken.onboarding.app.KeySingleton;
 import ai.salesken.onboarding.constants.ResponseCodes;
 import ai.salesken.onboarding.constants.ResponseMessages;
 import ai.salesken.onboarding.dao.UserDao;
 import ai.salesken.onboarding.dao.impl.UserDaoImpl;
+import ai.salesken.onboarding.misc.KeySingleton;
 import ai.salesken.onboarding.model.SaleskenResponse;
 import ai.salesken.onboarding.model.User;
+import ai.salesken.onboarding.service.Authentication;
 import ai.salesken.onboarding.utils.string.StringUtils;
 import io.jsonwebtoken.Jwts;
 
 /**
- * @author Vaibhav Verma
- * 
+ * @author Anurag
+ *
  */
 @Path("/global")
 
-public class AuthenticationImpl {
+public class AuthenticationImpl implements Authentication {
 	@Context
 	private ContainerRequestContext req;
+	@Inject
+	UserDao userDao;
 
 	@POST
 	@Path("/authenticate")
@@ -46,8 +50,7 @@ public class AuthenticationImpl {
 		User u = null;
 		try {
 			if (user.getEmail() != null && user.getPassword() != null) {
-				UserDao dao = new UserDaoImpl();
-				u = dao.findbyEmail(user.getEmail().toLowerCase());
+				u = userDao.findbyEmail(user.getEmail().toLowerCase());
 				if (u != null) {
 					// MD5 Check for password
 					String password = StringUtils.getMd5(user.getPassword());
@@ -56,7 +59,7 @@ public class AuthenticationImpl {
 							if (!u.getIsSuspended()) {
 								if (u.getIsVerified()) {
 									// License validation is remaining
-									if (dao.isValidLicense(u)) {
+									if (userDao.isValidLicense(u)) {
 										u.setPassword(null);
 										Calendar c = Calendar.getInstance();
 										c.setTime(new Date());
