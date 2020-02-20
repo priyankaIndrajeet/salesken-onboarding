@@ -1,6 +1,5 @@
 package ai.salesken.onboarding.model;
 
- 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -8,35 +7,39 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Organization {
 	private Integer id;
 	private String name;
-	private String organizationType;
-	private String industry;
 	private String website;
-	private String addressLine1;
-	private String addressLine2;
-	private String socialSite;
+	private String industry_type;
+	private String board_number;
+	private String address_line1;
+	private String address_line2;
 	private String landmark;
- 	private Integer pin;
-	private String boardlineNumber;
-	private String profile;
+	private String city;
+	private String state;
+	private String country;
+	private Integer zipcode;
+	private String description;
 
 	public Organization() {
 		super();
 	}
 
-	public Organization(Integer id, String name, String organizationType, String industry, String website,
-			String addressLine1, String addressLine2, String socialSite, String landmark, Integer pin,String profile) {
+	public Organization(Integer id, String name, String website, String industry_type, String board_number,
+			String address_line1, String address_line2, String landmark, String city, String state, String country,
+			Integer zipcode, String description) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.organizationType = organizationType;
-		this.industry = industry;
 		this.website = website;
-		this.addressLine1 = addressLine1;
-		this.addressLine2 = addressLine2;
-		this.socialSite = socialSite;
+		this.industry_type = industry_type;
+		this.board_number = board_number;
+		this.address_line1 = address_line1;
+		this.address_line2 = address_line2;
 		this.landmark = landmark;
-		this.pin = pin;
-		this.profile=profile;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.zipcode = zipcode;
+		this.description = description;
 	}
 
 	public Integer getId() {
@@ -55,22 +58,6 @@ public class Organization {
 		this.name = name;
 	}
 
-	public String getOrganizationType() {
-		return organizationType;
-	}
-
-	public void setOrganizationType(String organizationType) {
-		this.organizationType = organizationType;
-	}
-
-	public String getIndustry() {
-		return industry;
-	}
-
-	public void setIndustry(String industry) {
-		this.industry = industry;
-	}
-
 	public String getWebsite() {
 		return website;
 	}
@@ -79,28 +66,36 @@ public class Organization {
 		this.website = website;
 	}
 
-	public String getAddressLine1() {
-		return addressLine1;
+	public String getIndustry_type() {
+		return industry_type;
 	}
 
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
+	public void setIndustry_type(String industry_type) {
+		this.industry_type = industry_type;
 	}
 
-	public String getAddressLine2() {
-		return addressLine2;
+	public String getBoard_number() {
+		return board_number;
 	}
 
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setBoard_number(String board_number) {
+		this.board_number = board_number;
 	}
 
-	public String getSocialSite() {
-		return socialSite;
+	public String getAddress_line1() {
+		return address_line1;
 	}
 
-	public void setSocialSite(String socialSite) {
-		this.socialSite = socialSite;
+	public void setAddress_line1(String address_line1) {
+		this.address_line1 = address_line1;
+	}
+
+	public String getAddress_line2() {
+		return address_line2;
+	}
+
+	public void setAddress_line2(String address_line2) {
+		this.address_line2 = address_line2;
 	}
 
 	public String getLandmark() {
@@ -111,29 +106,43 @@ public class Organization {
 		this.landmark = landmark;
 	}
 
-	 
-	public Integer getPin() {
-		return pin;
+	public String getCity() {
+		return city;
 	}
 
-	public void setPin(Integer pin) {
-		this.pin = pin;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getBoardlineNumber() {
-		return boardlineNumber;
+	public String getState() {
+		return state;
 	}
 
-	public void setBoardlineNumber(String boardlineNumber) {
-		this.boardlineNumber = boardlineNumber;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public String getProfile() {
-		return profile;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setProfile(String profile) {
-		this.profile = profile;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
+	public Integer getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(Integer zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

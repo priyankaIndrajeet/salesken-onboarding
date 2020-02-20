@@ -27,8 +27,8 @@ import ai.salesken.onboarding.enums.UserStatus;
 import ai.salesken.onboarding.model.User;
 import ai.salesken.onboarding.model.ValidateResponse;
 import ai.salesken.onboarding.utils.DButils.DBUtils;
-import ai.salesken.onboarding.utils.impl.PhoneNumberValidator;
 import ai.salesken.onboarding.utils.impl.StringUtilImpl;
+import ai.salesken.onboarding.utils.impl.ValidatorImpl;
 
 public class UserDaoImpl implements UserDao {
 	@Override
@@ -302,7 +302,7 @@ public class UserDaoImpl implements UserDao {
 
 									String mobileNumber = cellValue.trim().replaceAll(" ", "");
 									// System.err.println(mobileNumber);
-									ValidateResponse validate = new PhoneNumberValidator().validate(mobileNumber);
+									ValidateResponse validate = new ValidatorImpl().PhoneNumberValidator(mobileNumber);
 									if (validate.getIsSuccess()) {
 
 										mobile.addProperty("value", validate.getSuccessMessage());
